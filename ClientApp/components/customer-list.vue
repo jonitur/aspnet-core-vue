@@ -43,7 +43,7 @@ export default {
         // ES2017 async/await syntax via babel-plugin-transform-async-to-generator
         // TypeScript can also transpile async/await down to ES5
         try {
-            let response = await this.$http.get('/api/SampleData/Customers')
+            let response = await this.$http.get('/api/Customer/List')
             console.log(response.data);
             this.customers = response.data;
         } catch (error) {
