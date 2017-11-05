@@ -26,6 +26,26 @@ namespace Vue2Spa.Controllers
             });
         }
 
+        [HttpGet("[action]")]
+        public IEnumerable<Customer> Customers()
+        {
+            var rng = new Random();
+            return Enumerable.Range(1, 15).Select(index => new Customer
+            {
+                Name = "Customer " + index,
+                Address = "Address " + index,
+                Total = index
+            });
+        }
+
+        public class Customer
+        {
+            public string Name { get; set; }
+            public string Address { get; set; }
+            public int Total { get; set; }
+            public string OrderStatus { get; set; }
+        }
+
         public class WeatherForecast
         {
             public string DateFormatted { get; set; }
