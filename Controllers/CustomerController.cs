@@ -20,5 +20,29 @@ namespace Vue2Spa.Controllers
                 Total = index
             });
         }
+
+        [HttpGet("[action]")]
+        public Customer Show(string id)
+        {
+            return new Customer
+            {
+                Name = "Customer " + id,
+                Address = "Address " + id,
+                Total = 10
+            };
+        }
+
+        [HttpPut("[action]")]
+        public bool Update(Customer customer)
+        {
+            return false;
+        }
+
+        [HttpPost("[action]")]
+        public bool Create(Customer customer)
+        {
+            return false;
+        }
+        
     }
 }
