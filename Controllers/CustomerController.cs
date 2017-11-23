@@ -15,6 +15,7 @@ namespace Vue2Spa.Controllers
         {
             return Enumerable.Range(1, 10).Select(index => new Customer
             {
+                Id = index.ToString(),
                 Name = "Customer " + index,
                 Address = "Address " + index,
                 Total = index

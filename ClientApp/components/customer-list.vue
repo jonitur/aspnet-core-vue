@@ -9,6 +9,7 @@
         <table class="table" v-if="customers">
             <thead>
                 <tr>
+                    <th>Id</th>
                     <th>Name</th>
                     <th>Address</th>
                     <th>Total</th>
@@ -16,7 +17,8 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="customer in customers" >
+                <tr v-for="customer in customers" :key="customer.id" >
+                    <td>{{ customer.id }}</td>
                     <td>{{ customer.name }}</td>
                     <td>{{ customer.address }}</td>
                     <td>{{ customer.total }}</td>                   
