@@ -12,6 +12,7 @@
     </p>
 
     <button @click="incrementCounter()">Increment</button>
+    <button @click="decrementCounter()">Decrement</button>
     <button @click="resetCounter()">Reset</button>
   </div>
 </template>
@@ -22,13 +23,13 @@
   export default {
   data() {
   return {
-  autoCount: 0,
+    autoCount: 0,
   }
   },
 
   computed: {
   ...mapState({
-  currentCount: state => state.counter
+    currentCount: state => state.counter
   })
   },
 
@@ -36,19 +37,23 @@
   ...mapActions(['setCounter']),
 
   incrementCounter: function() {
-  var counter = this.currentCount + 1;
-  this.setCounter({counter: counter});
+    let counter = this.currentCount + 1;
+    this.setCounter({counter: counter});
+  },
+  decrementCounter: function() {
+    let counter = this.currentCount - 1;
+    this.setCounter({counter: counter});
   },
   resetCounter: function() {
-  this.setCounter({counter: 0});
-  this.autoCount = 0;
+    this.setCounter({counter: 0});
+    this.autoCount = 0;
   }
   },
 
   created() {
-  setInterval(() => {
-  this.autoCount += 1
-  }, 1000)
+    setInterval(() => {
+      this.autoCount += 1
+    }, 1000)
   }
   }
 </script>
